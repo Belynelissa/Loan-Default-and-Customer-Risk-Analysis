@@ -1,8 +1,9 @@
 # Loan-Default-and-Customer-Risk-Analysis
 ## Project Overview
-Financial institutions face significant challenges in managing credit risk and maintaining healthy loan portfolios. This project analyzes 200,000 consumer loan records to identify default patterns, evaluate borrower risk characteristics, assess portfolio performance, and develop an interactive risk analytics dashboard.
+This project analyzes consumer lending data to understand loan performance, borrower risk behavior, and key drivers of default.  
+It segments loans into **Performing, Watchlist, High Risk, and Defaulted** categories and builds an interactive Power BI dashboard for portfolio monitoring.
 
-The project combines Python, MySQL, and Power BI to transform raw loan data into actionable business insights that support lending and risk management decisions.
+The goal is to help financial stakeholders identify risk patterns early and improve credit decision-making.
 
 ---
 
@@ -53,6 +54,8 @@ The dataset contains approximately 200,000 consumer loan records and includes:
 - Loan Status
 
 After cleaning and preprocessing, a focused analytical dataset was created for risk analysis and dashboard development.
+
+> ⚠️ Note: The original dataset (1.6GB) is excluded from this repository due to GitHub size limits. A processed dataset is included for reference.
 
 ---
 
@@ -130,7 +133,6 @@ Loan Default and Customer Risk Analysis
 ├── data/
 ├── notebooks/
 ├── dashboard/
-├── images/
 ├── README.md
 └── requirements.txt
 ```

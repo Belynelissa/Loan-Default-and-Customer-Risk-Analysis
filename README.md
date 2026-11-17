@@ -1,146 +1,160 @@
-# Loan-Default-and-Customer-Risk-Analysis
-## Project Overview
-This project analyzes consumer lending data to understand loan performance, borrower risk behavior, and key drivers of default.  
-It segments loans into **Performing, Watchlist, High Risk, and Defaulted** categories and builds an interactive Power BI dashboard for portfolio monitoring.
+# Credit Risk Intelligence & Portfolio Performance Analysis
 
-The goal is to help financial stakeholders identify risk patterns early and improve credit decision-making.
+A business-focused analysis of historical consumer lending data to help decision-makers understand portfolio performance, distinguish patterns of credit risk, and identify where lending and monitoring practices may warrant closer review.
 
----
+This project brings together **Python, MySQL and Power BI** to turn loan-level data into practical portfolio insights.
 
-## Business Objectives
+## The business challenge
 
-The analysis aimed to answer the following questions:
+Lending decisions involve balancing portfolio growth with the risk that borrowers may not repay. When performance is reviewed only through overall repayment figures, important differences between loan segments can be overlooked.
 
-- What proportion of the loan portfolio is performing versus defaulted?
-- Which borrower characteristics are associated with higher risk?
-- How does loan grade relate to portfolio performance?
-- Are interest rates aligned with borrower risk levels?
-- Which loan purposes contribute most to portfolio risk?
-- How is financial exposure distributed across risk categories?
+This analysis explores four management questions:
 
----
+1. **Portfolio health and exposure:** How are loans distributed across repayment and delinquency stages?
+2. **Credit quality and risk differentiation:** How does historical default performance vary across credit grades?
+3. **Borrower and loan characteristics:** How do loan purpose, borrower characteristics and pricing relate to observed outcomes?
+4. **Risk-informed financial decisions:** What should management investigate, monitor or review based on the patterns?
 
-## Tools & Technologies
+## What the analysis found
 
-- Python
-  - Pandas
-  - NumPy
-  - Jupyter Notebook
+The analysis covers **200,000 historical loan records** from the LendingClub 2007–2018 dataset.
 
-- MySQL
-  - Data storage
-  - Querying and data management
+### 1. Portfolio health
 
-- Power BI
-  - Dashboard development
-  - Data visualization
-  - KPI reporting
+| Risk stage | Loan records | Share of analysed records |
+|---|---:|---:|
+| Performing* | 163,629 | 81.81% |
+| Defaulted | 35,091 | 17.55% |
+| High risk | 785 | 0.39% |
+| Watchlist | 495 | 0.25% |
+| **Total** | **200,000** | **100%** |
 
----
+\*Performing combines loans recorded as **Current** and **Fully Paid**. These are different states: one represents loans still being repaid, while the other represents loans that have been repaid.
 
-## Dataset
+The defaulted share represents the proportion of records classified as defaulted in this historical analysed sample. It is not a current default rate, a forecast, or a measure of financial loss.
 
-The dataset contains approximately 200,000 consumer loan records and includes:
+### 2. Credit quality and risk differentiation
 
-- Loan Amount
-- Loan Term
-- Interest Rate
-- Loan Grade
-- Employment Length
-- Annual Income
-- Debt-to-Income Ratio (DTI)
-- Home Ownership
-- Loan Purpose
-- Loan Status
+Historical default rates increased across the loan-grade categories:
 
-After cleaning and preprocessing, a focused analytical dataset was created for risk analysis and dashboard development.
+| Loan grade | Historical default rate |
+|---|---:|
+| A | 5.16% |
+| B | 11.59% |
+| C | 19.50% |
+| D | 27.52% |
+| E | 34.45% |
+| F | 42.65% |
+| G | 50.39% |
 
-> ⚠️ Note: The original dataset (1.6GB) is excluded from this repository due to GitHub size limits. A processed dataset is included for reference.
+The pattern shows a clear relationship between loan grade and historical repayment outcomes in the analysed records. Grade G had almost ten times the default rate of Grade A.
 
----
+**Business implication:** Credit-grade performance can help management identify segments that may warrant closer review of assessment criteria, risk appetite and monitoring intensity. The observed relationship should not be treated as proof that grade alone causes default.
 
-## Data Preparation
+### 3. Borrower and loan characteristics
 
-Key preprocessing steps included:
+Default rates also varied by stated loan purpose. Examples include:
 
-- Selection of relevant analytical variables
-- Handling missing values
-- Standardization of employment length
-- Cleaning loan term values
-- Creation of risk categories
-- Validation of loan status classifications
+| Loan purpose | Historical default rate |
+|---|---:|
+| Renewable energy | 26.79% |
+| Small business | 26.24% |
+| House | 24.16% |
+| Moving | 21.44% |
+| Medical | 19.46% |
+| Debt consolidation | 18.82% |
+| Credit card | 14.46% |
+| Car | 14.23% |
 
-### Risk Stage Classification
+These differences provide starting points for further segment review. Category sizes should be considered before drawing conclusions, since a percentage based on a small number of loans may be unstable.
 
-| Risk Stage | Loan Status |
-|------------|------------|
-| Performing Loans | Fully Paid, Current |
-| Watchlist Loans | In Grace Period, Late (16–30 days) |
-| High Risk Loans | Late (31–120 days) |
-| Defaulted | Charged Off, Default |
+Average interest rates also differed by risk stage:
 
----
+| Risk stage | Average interest rate |
+|---|---:|
+| Performing | 11.83% |
+| Defaulted | 14.73% |
+| High risk | 15.32% |
+| Watchlist | 15.37% |
 
-## Key Findings
+Higher average rates in delinquent and defaulted groups raise a useful management question: does loan pricing adequately reflect risk while remaining affordable to borrowers? These averages alone do not establish whether pricing compensates for losses or contributes to repayment pressure.
 
-### Portfolio Health
+### 4. Risk-informed financial decisions
 
-- 81.8% of loans were classified as Performing
-- 17.5% of loans were classified as Defaulted
-- Less than 1% of loans fell within Watchlist and High-Risk categories
+The findings can support management discussions and further investigation in areas such as:
 
-### Risk Drivers
+- Reviewing credit-grade performance and lending criteria.
+- Strengthening monitoring of loans moving into early delinquency.
+- Investigating loan-purpose segments with higher observed default rates.
+- Assessing pricing alongside repayment outcomes and borrower affordability.
+- Improving portfolio reporting so decision-makers can distinguish current, repaid, delinquent and defaulted loans.
 
-- Loan Grade showed a strong relationship with portfolio performance
-- Lower-quality grades experienced significantly higher default rates
-- Debt Consolidation and Credit Card loans represented the largest concentration of risk
+These are **decision-support recommendations**, not claims of realised savings, reduced defaults or increased profitability. The project analyses historical data and does not measure the impact of implementing these actions.
 
-### Pricing Analysis
+## Analytical approach
 
-- Higher-risk borrowers generally received higher interest rates
-- Interest rate increases were not always proportional to realized default risk
+The workflow covered:
 
-### Borrower Characteristics
-
-- Debt-to-Income Ratio (DTI) emerged as an important risk indicator
-- Employment Length showed relatively weak predictive power compared to loan grade and purpose
-
----
+1. **Data preparation in Python:** selecting relevant fields, handling missing values, standardising selected variables, cleaning loan-term values and preparing the analytical dataset.
+2. **Risk-stage classification:** grouping loan statuses into Performing, Watchlist, High Risk and Defaulted categories.
+3. **Data storage and querying:** using MySQL as part of the data workflow.
+4. **Business analysis:** comparing portfolio composition, credit grades, loan purposes and interest rates across risk stages.
+5. **Reporting:** presenting portfolio patterns and comparisons in an interactive Power BI dashboard.
 
 ## Dashboard
 
-The Power BI dashboard provides:
+The Power BI report brings the analysis together through portfolio overview, risk distribution, loan-grade performance, borrower segmentation and loan-purpose comparisons.
 
-- Portfolio Overview
-- Risk Distribution Analysis
-- Exposure Analysis
-- Loan Grade Performance
-- Borrower Risk Segmentation
-- Loan Purpose Risk Assessment
+### Dashboard preview
 
-### Dashboard Preview
+<img width="1322" height="736" alt="Credit risk and loan portfolio analysis dashboard" src="https://github.com/user-attachments/assets/f6c1aac8-4cf2-4d08-a4f4-bcd4c6d4dff7" />
 
-<img width="1322" height="736" alt="Loan and Customer risk analysis dashboard" src="https://github.com/user-attachments/assets/f6c1aac8-4cf2-4d08-a4f4-bcd4c6d4dff7" />
+**Project files**
 
+- [Open the Power BI report](./Loan%20and%20Customer%20risk%20analysis.pbix)
+- [View the Python analysis notebook](./Loan%20Analysis.ipynb)
+- [View the processed loan sample](./loan_sample.xlsx)
+- [View the loan fact table](./loan_fact_table.xlsx)
 
----
+## Tools and technologies
 
-## Project Structure
+- **Python:** Pandas, NumPy, Jupyter Notebook
+- **MySQL:** data storage and querying
+- **Power BI:** interactive reporting and data visualisation
+- **Excel:** processed data files
+
+## Dataset and scope
+
+The source data is the LendingClub historical loan dataset covering 2007–2018. The analysis uses **the first 200,000 records** from the source data; this is not documented as a random sample and may not represent the full LendingClub population or other lending portfolios.
+
+The original source file is not included in this repository because of its size. Processed files are provided for reference.
+
+### Important interpretation limits
+
+- The results describe historical records, not a live lending portfolio.
+- The 200,000-record selection may contain selection bias because it uses the first records rather than a documented random sample.
+- The Performing category combines Current and Fully Paid loans.
+- The analysis reports loan counts and observed rates; it does not establish current outstanding-balance exposure, realised financial losses, or recoveries.
+- Associations in the data should not be interpreted as causal relationships or as a predictive credit-scoring model.
+- Findings from this dataset should be validated against an institution's own portfolio before being used to change lending policy.
+
+## Project structure
 
 ```text
-Loan Default and Customer Risk Analysis
-│
-├── data/
-├── notebooks/
-├── dashboard/
-├── README.md
-└── requirements.txt
+Loan-Default-and-Customer-Risk-Analysis/
+├── Loan Analysis.ipynb
+├── Loan and Customer risk analysis.pbix
+├── loan_fact_table.xlsx
+├── loan_sample.xlsx
+├── requirements.txt
+└── README.md
 ```
 
----
+## About this project
 
-## Author
+This is an independent Business Intelligence and analytics case study demonstrating how historical business data can be translated into insights, management questions and practical decision-support recommendations.
 
-Belyne Lissa Bochere
+**Author:** Belyne Lissa Bochere  
+**Focus:** Business Intelligence | Performance Analytics | Credit Risk Intelligence
 
-Data Analytics | Business Intelligence | Risk Analytics
+*See Beyond Numbers — turn data into clearer decisions.*

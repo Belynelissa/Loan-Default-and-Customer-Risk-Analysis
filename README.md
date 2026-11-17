@@ -1,8 +1,8 @@
-# Credit Risk Intelligence & Portfolio Performance Analysis
+# Credit Risk Intelligence & Loan Portfolio Analysis
 
-A business-focused analysis of historical consumer lending data to help decision-makers understand portfolio performance, distinguish patterns of credit risk, and identify where lending and monitoring practices may warrant closer review.
+A business-focused analysis of historical consumer lending data, designed to help decision-makers understand portfolio composition, distinguish patterns of credit risk and identify where lending and monitoring practices may warrant closer review.
 
-This project brings together **Python, MySQL and Power BI** to turn loan-level data into practical portfolio insights.
+This work was presented to paying clients. The public repository uses the historical LendingClub dataset rather than confidential client records, so the analytical approach can be reviewed without disclosing proprietary information.
 
 ## The business challenge
 
@@ -29,7 +29,7 @@ The analysis covers **200,000 historical loan records** from the LendingClub 200
 | Watchlist | 495 | 0.25% |
 | **Total** | **200,000** | **100%** |
 
-\*Performing combines loans recorded as **Current** and **Fully Paid**. These are different states: one represents loans still being repaid, while the other represents loans that have been repaid.
+*Performing combines loans recorded as **Current** and **Fully Paid**. These are different states: one represents loans still being repaid, while the other represents loans that have been repaid.
 
 The defaulted share represents the proportion of records classified as defaulted in this historical analysed sample. It is not a current default rate, a forecast, or a measure of financial loss.
 
@@ -99,7 +99,7 @@ The workflow covered:
 2. **Risk-stage classification:** grouping loan statuses into Performing, Watchlist, High Risk and Defaulted categories.
 3. **Data storage and querying:** using MySQL as part of the data workflow.
 4. **Business analysis:** comparing portfolio composition, credit grades, loan purposes and interest rates across risk stages.
-5. **Reporting:** presenting portfolio patterns and comparisons in an interactive Power BI dashboard.
+5. **Reporting:** presenting portfolio patterns and comparisons in an interactive Power BI report.
 
 ## Dashboard
 
@@ -125,9 +125,9 @@ The Power BI report brings the analysis together through portfolio overview, ris
 
 ## Dataset and scope
 
-The source data is the LendingClub historical loan dataset covering 2007–2018. The analysis uses **the first 200,000 records** from the source data; this is not documented as a random sample and may not represent the full LendingClub population or other lending portfolios.
+The public analysis uses the LendingClub historical loan dataset covering 2007–2018. It includes **the first 200,000 records** from the source data; this is not documented as a random sample and may not represent the full LendingClub population or other lending portfolios.
 
-The original source file is not included in this repository because of its size. Processed files are provided for reference.
+The public files are historical third-party data and do not contain confidential records from the paying clients to whom this work was presented. The original source file is not included in this repository because of its size. Processed files are provided for reference.
 
 ### Important interpretation limits
 
@@ -150,11 +150,8 @@ Loan-Default-and-Customer-Risk-Analysis/
 └── README.md
 ```
 
-## About this project
+## Professional focus
 
-This is an independent Business Intelligence and analytics case study demonstrating how historical business data can be translated into insights, management questions and practical decision-support recommendations.
+Business Intelligence | Performance Analytics | Credit Risk Intelligence
 
-**Author:** Belyne Lissa Bochere  
-**Focus:** Business Intelligence | Performance Analytics | Credit Risk Intelligence
-
-*See Beyond Numbers — turn data into clearer decisions.*
+**See Beyond Numbers — turn data into clearer decisions.**

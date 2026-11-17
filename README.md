@@ -4,6 +4,10 @@ A business-focused analysis of historical consumer lending data, designed to hel
 
 This work was presented to paying clients. The public repository uses the historical LendingClub dataset rather than confidential client records, so the analytical approach can be reviewed without disclosing proprietary information.
 
+## Dashboard preview
+
+<img width="1322" height="736" alt="Credit risk and loan portfolio analysis dashboard" src="https://github.com/user-attachments/assets/f6c1aac8-4cf2-4d08-a4f4-bcd4c6d4dff7" />
+
 ## The business challenge
 
 Lending decisions involve balancing portfolio growth with the risk that borrowers may not repay. When performance is reviewed only through overall repayment figures, important differences between loan segments can be overlooked.
@@ -104,10 +108,6 @@ The workflow covered:
 ## Dashboard
 
 The Power BI report brings the analysis together through portfolio overview, risk distribution, loan-grade performance, borrower segmentation and loan-purpose comparisons.
-
-### Dashboard preview
-
-<img width="1322" height="736" alt="Credit risk and loan portfolio analysis dashboard" src="https://github.com/user-attachments/assets/f6c1aac8-4cf2-4d08-a4f4-bcd4c6d4dff7" />
 
 **Project files**
 
